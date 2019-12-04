@@ -16,6 +16,8 @@
 </head>
 <body>
 	<div class="container abaixar-container jumbotron">
+		<h3><a href="../">Retornar para o menu de selecao</a></h3>
+		<hr class="my-4">
 		<p class="lead">Redutor PDF, instrucoes:</p>
 		<li>Entre com um arquivo PDF com no maximo 30MB;</li>
 		<li>O sistema ira fazer o upload e compactacao do arquivo;</li>

@@ -16,6 +16,8 @@
 </head>
 <body>
 	<div class="container abaixar-container jumbotron">
+		<h3><a href="../">Retornar para o menu de selecao</a></h3>
+		<hr class="my-4">
 		<p class="lead">Conversor DAV, instrucoes:</p>
 		<li>Entre com um arquivo DAV com no maximo 1Gb;</li>
 		<li>O sistema ira fazer o upload e conversao do arquivo;</li>
