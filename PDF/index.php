@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="../js/bootstrap.min.js">
 	<link rel="stylesheet" href="../js/popper.min.js">
 </head>
+<?php
+include("../funcoes/funcoes.php");
+?>			
 <body>
 	<div class="container abaixar-container jumbotron">
 		<h3><a href="../">Retornar para o menu de selecao</a></h3>
@@ -31,7 +34,9 @@
 		</form>
 		<hr class="my-4">
 		<p class="lead">Limpar arquivos, apaga todos os arquivos listados abaixo na tabela.</p>
-		<form method="POST" action="limpar.php" enctype="multipart/form-data">
+		<form method="GET" action="../funcoes/limpar.php">
+			<input type="hidden" id="caminho" value="<?=renomear(getcwd());?>" name="caminho" required/>
+			<input type="hidden" id="formato" value="pdf" name="formato" required/>
 			<button type="submit" class="btn btn-danger">Limpar arquivos listados</button>
 		</form>
 		<hr class="my-4">
@@ -46,8 +51,9 @@
 			</thead>
 			<tbody>
 			<?php
-			include("../funcoes/funcoes.php");
-			arquivos("pdf");
+			$retorno = explode("/",getcwd());
+			$caminho = "../" . $retorno[count($retorno) - 1];
+			arquivos("pdf", $caminho);
 			?>
 			</tbody>
 		</table>
