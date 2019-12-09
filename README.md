@@ -12,3 +12,5 @@ Páginas estão funcionando corretamente, tentativas de melhoras serão implemen
 * Reduzir a quantidade de arquivos 
 * Aumentar a quantidade de funcoes
 * Arrumar a estrutura dos diretorios
+
+Se usar o file de preparacoes, toda as estruturas internas das funcoes ja ficam prontas para serem utilizadas. 

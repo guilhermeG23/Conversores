@@ -14,10 +14,18 @@
 <body>
 	<div class="container abaixar-container jumbotron">
 		<h3>Menu de selecao de conversores</h3>
-		<hr class="my-4">
-		<h5><a href="html_DVR">DVR</a></h5>
-		<hr class="my-4">
-		<h5><a href="html_PDF">PDF</a></h5>
+	<?php
+	#Escaneia o diretorio atual, atras de outros diretorios
+	$diretorios = scandir(getcwd());
+	#Le o array criado 
+	foreach($diretorios as $diretorio) {
+		#Confirma se e um diretorio e se esta com letra maiuscula, se confirmar isso, printa o diretorio
+		if(is_dir($diretorio) and ctype_upper($diretorio)) {
+			echo "<hr class='my-4'>";
+			echo "<h5><a href=$diretorio>$diretorio</a></h5>";
+		}
+	}
+	?>
 	</div>
 </body>
 </html>
