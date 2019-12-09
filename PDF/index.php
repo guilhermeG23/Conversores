@@ -6,13 +6,13 @@
 	<meta http-equiv="Expires" content="-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
-	<link rel="shortcut icon" href="pdf.png" type="image/x-icon">
-	<link rel="stylesheet" href="resetCSS.css">
-	<link rel="stylesheet" href="bootstrap.min.css">
-	<link rel="stylesheet" href="cssPessoal.css">
-	<link rel="stylesheet" href="jquery.min.js">
-	<link rel="stylesheet" href="bootstrap.min.js">
-	<link rel="stylesheet" href="popper.min.js">
+	<link rel="shortcut icon" href="../imagens/pdf.png" type="image/x-icon">
+	<link rel="stylesheet" href="../css/resetCSS.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/cssPessoal.css">
+	<link rel="stylesheet" href="../js/jquery.min.js">
+	<link rel="stylesheet" href="../js/bootstrap.min.js">
+	<link rel="stylesheet" href="../js/popper.min.js">
 </head>
 <body>
 	<div class="container abaixar-container jumbotron">
@@ -25,6 +25,7 @@
 		<hr class="my-4">
 		<p class="lead">Faz o upload e reduz o tamanho do pdf, atencao, suporte a PDF's de no maximo 30Mb, operacao pode demorar um pouco, favor nao recarregar a pagina.</p>
 		<form method="POST" action="conversor.php" enctype="multipart/form-data">
+			<input type="hidden" id="caminho" value="<?=getcwd();?>" name="caminho" required/>
 			<input type="file" id="arquivo" value="" name="arquivo" accept="application/pdf" required/>
 			<button type="submit" class="btn btn-primary">Enviar</button>
 		</form>
@@ -44,29 +45,10 @@
 				</tr>
 			</thead>
 			<tbody>
-<?php
-
-function tamanho($arquivo) {
-	$arquivo_tamanho = number_format((filesize($arquivo) / 1024), 2, '.', '');
-	if (strlen($arquivo_tamanho) <= 6) {
-		return $arquivo_tamanho . "Kb";
-	} else {
-		return number_format(($arquivo_tamanho / 1024), 2, '.', '') . "Mb";
-	}
-}
-
-chdir('arquivos');
-$arquivos = glob("{*.pdf}", GLOB_BRACE);
-foreach($arquivos as $pdf) echo "
-	<tr>
-		<th>{$pdf}</th>
-		<th>" . tamanho($pdf) . "</th>
-		<th>
-			<a href='arquivos/{$pdf}' download><img class='imagem' src='download.png'/></a>
-			<a href='limpar.php?arquivo={$pdf}'><img class='imagem' src='deletar.png'/></a>
-		</th>
-	</tr>";
-?>
+			<?php
+			include("../funcoes/funcoes.php");
+			arquivos("pdf");
+			?>
 			</tbody>
 		</table>
 	</div>
