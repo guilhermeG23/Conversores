@@ -1,4 +1,4 @@
-# Web php reduce file PDF
+# Web php reduce file image
 * Pagina PHP para diminuir tamanho de imagens.
 
 ## Requisitos
