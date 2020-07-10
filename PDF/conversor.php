@@ -8,7 +8,7 @@ if (isset($_FILES['arquivo'])) {
 	$arquivo_input = '../trabalho/'.$arquivo;
 	move_uploaded_file($_FILES['arquivo']['tmp_name'], $arquivo_input);
 	shell_exec("gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dNOPAUSE -dQUIET -dBATCH -sOutputFile=../arquivos/$arquivo $arquivo_input");
-	shell_exec("rm -rf ../trabalho/*.pdf");
+	shell_exec("rm -rf $arquivo_input");
 }
 $retorno = explode("/",$caminho);
 $caminho = "../" . $retorno[count($retorno) - 1];

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container abaixar-container jumbotron">
-		<h3>Menu de selecao de conversores</h3>
+		<h3>Funções gerais e ferramentas</h3>
 	<?php
 	#Escaneia o diretorio atual, atras de outros diretorios
 	$diretorios = scandir(getcwd());
